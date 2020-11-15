@@ -4,16 +4,14 @@ import Auth from "routes/Auth";
 import Home from "routes/Home";
 
 const AppRouter = (isLoggedIn) => {
-  console.log(isLoggedIn);
+  const login = isLoggedIn.isLoggedIn;
   return (
     <Router>
       <Switch>
-        {isLoggedIn === null ? (
-          <>
-            <Route exact path="/">
-              <Home></Home>
-            </Route>
-          </>
+        {login ? (
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
         ) : (
           <Route exact path="/">
             <Auth />
