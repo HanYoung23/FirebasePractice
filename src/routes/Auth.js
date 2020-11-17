@@ -7,8 +7,6 @@ const Auth = () => {
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState("");
   const onChange = (event) => {
-    // const name = event.target.name;
-    // const value = event.target.value;
     const {
       target: { name, value },
     } = event;
@@ -22,16 +20,14 @@ const Auth = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      let data;
+      // let data;
       if (newAccount) {
-        data = await authService.createUserWithEmailAndPassword(
-          email,
-          password
-        );
+        // data =
+        await authService.createUserWithEmailAndPassword(email, password);
       } else {
-        data = await authService.signInWithEmailAndPassword(email, password);
+        // data =
+        await authService.signInWithEmailAndPassword(email, password);
       }
-      console.log(data);
     } catch (error) {
       setError(error.message);
     }
