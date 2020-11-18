@@ -20,16 +20,19 @@ function App() {
         setIsLoggedIn(false);
       }
       setInit(true);
+      refreshUser();
     });
   }, []);
 
   const refreshUser = () => {
     const user = authService.currentUser;
-    setUserObj({
-      displayName: user.displayName,
-      uid: user.uid,
-      updateProfile: (args) => user.updateProfile(args),
-    });
+    if (user.displayName !== null) {
+      setUserObj({
+        displayName: user.displayName,
+        uid: user.uid,
+        updateProfile: (args) => user.updateProfile(args),
+      });
+    }
   };
 
   return (
